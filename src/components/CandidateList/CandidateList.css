@@ -1,0 +1,24 @@
+.list-container {
+  flex: 1;
+}
+.candidate-list-container {
+  width: 883px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 7px;
+}
+.qualify-disqualify-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox-container {
+  display: flex;
+  gap: 19px;
+}
+.qualified-container {
+  display: flex;
+}

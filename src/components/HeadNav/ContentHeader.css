@@ -1,0 +1,35 @@
+.header-container {
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: center;
+  color: #fff;
+  padding: 0 32px;
+}
+.header-text-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.dropdown-option,
+.flex-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.step-dropdown button {
+  background-color: #1d5ecd;
+  color: #fff;
+}
+.icon-list {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

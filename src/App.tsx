@@ -1,25 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import "./App.css";
+
+import { Layout } from "antd";
+import SideNav from "./components/SideNav/SideNav";
+import ContentHeader from "./components/HeadNav/ContentHeader";
+import ContentFilter from "./components/ContentFilter/ContentFilter";
+import CandidateList from "./components/CandidateList/CandidateList";
+
+const { Sider, Content } = Layout;
+
+const contentStyle: React.CSSProperties = {
+  // flex: 1,
+  // padding: "32px",
+  // overflowY: "auto",
+  backgroundColor: "#e9efff",
+};
+
+const siderStyle: React.CSSProperties = {
+  width: "72px",
+
+  textAlign: "center",
+
+  color: "#fff",
+  backgroundColor: "#fff",
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="app-container">
+      <Sider style={siderStyle} width="72px">
+        <SideNav />
+      </Sider>
+      <Content style={contentStyle}>
+        <ContentHeader />
+        <div className="content-container">
+          <ContentFilter />
+          <CandidateList />
+        </div>
+      </Content>
+    </Layout>
   );
 }
 
