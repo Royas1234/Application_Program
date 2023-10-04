@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input, Tooltip, Divider, Card, Typography } from "antd";
 import {
   SearchOutlined,
@@ -9,19 +9,35 @@ import {
 import "./ContentFilter.css";
 
 const { Text } = Typography;
-function ContentFilter() {
+type ContentFilterProps = {
+  onSearch: (searchCandidate: string) => void;
+};
+function ContentFilter({ onSearch }: ContentFilterProps) {
+  const [searchCandidate, setSearchCandidate] = useState("");
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchCandidate(event.target.value);
+  };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSearch(searchCandidate);
+  };
   return (
     <div className="search-container">
-      <Input
-        size="large"
-        placeholder="Search by name, edu, exp or #tag"
-        prefix={<SearchOutlined />}
-        suffix={
-          <Tooltip title="Extra information">
-            <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
-          </Tooltip>
-        }
-      />
+      <form onSubmit={handleSubmit}>
+        <Input
+          size="large"
+          value={searchCandidate}
+          onChange={handleSearchChange}
+          placeholder="Search by name, edu, exp or #tag"
+          prefix={<SearchOutlined />}
+          suffix={
+            <Tooltip title="Extra information">
+              <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
+            </Tooltip>
+          }
+        />
+      </form>
 
       <div className="filter-container">
         <Card

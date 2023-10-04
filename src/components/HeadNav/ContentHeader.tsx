@@ -186,10 +186,15 @@ const stepItems: MenuProps["items"] = [
 ];
 function ContentHeader() {
   const [currentStep, setCurrentStep] = useState("Video Interview 1");
+  const [step, setStep] = useState("Oppurtunity Browsing");
 
   const onMenuClick: MenuProps["onClick"] = (e) => {
     console.log("click", e);
     setCurrentStep(e.key);
+  };
+  const handleClick: MenuProps["onClick"] = (e) => {
+    console.log("click", e);
+    setStep(e.key);
   };
 
   return (
@@ -203,7 +208,7 @@ function ContentHeader() {
       </div>
       <div className="flex-container">
         <div className="drop-down">
-          <Dropdown menu={{ items }}>
+          <Dropdown menu={{ items, onClick: handleClick }}>
             <Button
               style={{
                 height: "40px",
@@ -212,9 +217,8 @@ function ContentHeader() {
                 justifyContent: "space-between",
                 alignItems: "center ",
               }}
-              onClick={(e) => e.preventDefault()}
             >
-              <Text>Oppurtunity Browsing </Text>
+              <Text>{step}</Text>
               <DownOutlined />
             </Button>
           </Dropdown>
